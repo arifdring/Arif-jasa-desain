@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GameHub Design - Top up game dan jasa desain kreatif.">
+  <title>GameHub Design — Game & Jasa Desain</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div>Great ⭐ 4.8 out of 5</div>
+    <div>Transaksi Aman &nbsp; • &nbsp; Layanan Indonesia</div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-main container">
+      <a class="logo" href="#" onclick="showHome(event)">
+        <span>game</span><b>hub</b>
+      </a>
+
+      <div class="search-wrap">
+        <span class="search-icon">⌕</span>
+        <input id="searchInput" type="search"
+          placeholder="Cari game, diamond, skin, desain..."
+          oninput="searchProducts()">
+        <button onclick="searchProducts()">CARI</button>
+      </div>
+
+      <button class="login-btn" onclick="openLogin()">Masuk</button>
+      <button class="cart-btn" onclick="openCart()">
+        🛒 <span id="cartCount">0</span>
+      </button>
+    </div>
+
+    <nav class="nav">
+      <div class="container nav-inner">
+        <a href="#kategori">▦ Kategori</a>
+        <a href="#game" onclick="openSection('game')">🎮 Game</a>
+        <a href="#desain" onclick="openSection('design')">🎨 Jasa Desain</a>
+        <a href="#promo">🔥 Promo</a>
+        <a href="#cara-order">❓ Cara Order</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="promo">
+    <div class="hero-pattern"></div>
+    <div class="container hero-content">
+      <div class="hero-copy">
+        <span class="eyebrow">PLATFORM GAME & KREATIF</span>
+        <h1>Main Lebih Seru,<br><span>Bikin Lebih Kreatif.</span></h1>
+        <p>Top up game favorit dan pesan desain profesional dalam satu tempat.</p>
+        <div class="hero-actions">
+          <button class="primary-btn" onclick="openSection('game')">🎮 Belanja Game</button>
+          <button class="secondary-btn" onclick="openSection('design')">🎨 Jasa Desain</button>
+        </div>
+      </div>
+
+      <div class="hero-cards">
+        <div class="promo-card game-card">
+          <div class="card-label">GAME</div>
+          <div class="promo-icon">💎</div>
+          <h3>Diamond & Skin</h3>
+          <p>Mulai dari Rp10.000</p>
+          <button onclick="openSection('game')">Lihat Produk</button>
+        </div>
+        <div class="promo-card design-card">
+          <div class="card-label">DESAIN</div>
+          <div class="promo-icon">✦</div>
+          <h3>Desain Kreatif</h3>
+          <p>Mulai dari Rp25.000</p>
+          <button onclick="openSection('design')">Lihat Jasa</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="trust container">
+      <span>🛡️ Transaksi Aman</span>
+      <span>↩️ Garansi & Revisi</span>
+      <span>💬 Customer Care</span>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="categories" id="kategori">
+    <div class="container category-list">
+      <button class="category-item active" onclick="openSection('game')">
+        <div class="category-icon blue">💎</div>
+        <span>Game</span>
+      </button>
+      <button class="category-item" onclick="openSection('design')">
+        <div class="category-icon purple">🎨</div>
+        <span>Jasa Desain</span>
+      </button>
+      <button class="category-item" onclick="filterType('topup')">
+        <div class="category-icon yellow">⚡</div>
+        <span>Top Up</span>
+      </button>
+      <button class="category-item" onclick="filterType('skin')">
+        <div class="category-icon pink">🧥</div>
+        <span>Skin</span>
+      </button>
+      <button class="category-item" onclick="filterType('graphic')">
+        <div class="category-icon green">🖼️</div>
+        <span>Graphic Design</span>
+      </button>
+      <button class="category-item" onclick="filterType('branding')">
+        <div class="category-icon orange">✒️</div>
+        <span>Branding</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- PRODUCT SECTION -->
+  <main class="container main-content">
+    <div class="section-heading">
+      <div>
+        <p class="section-kicker" id="sectionKicker">PRODUK GAME</p>
+        <h2 id="sectionTitle">Game Favorit</h2>
+        <p id="sectionDesc">Pilih kebutuhan game kamu, mulai dari diamond sampai voucher.</p>
+      </div>
+      <button class="outline-btn" onclick="showAllCurrent()">Lihat Semua →</button>
+    </div>
+
+    <div id="productGrid" class="product-grid"></div>
+
+    <div id="emptyState" class="empty-state hidden">
+      <div>🔎</div>
+      <h3>Produk tidak ditemukan</h3>
+      <p>Coba gunakan kata pencarian lain.</p>
+    </div>
+  </main>
+
+  <!-- HOW TO ORDER -->
+  <section class="how-section" id="cara-order">
+    <div class="container">
+      <div class="section-heading center">
+        <div>
+          <p class="section-kicker">MUDAH & CEPAT</p>
+          <h2>Cara Order</h2>
+          <p>Pesan produk game atau jasa desain hanya dengan beberapa langkah.</p>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="step"><b>01</b><div>🛍️</div><h3>Pilih Produk</h3><p>Pilih game atau jasa desain yang kamu butuhkan.</p></div>
+        <div class="step"><b>02</b><div>📝</div><h3>Isi Detail</h3><p>Masukkan data akun atau brief desain dengan lengkap.</p></div>
+        <div class="step"><b>03</b><div>💳</div><h3>Lakukan Pembayaran</h3><p>Pilih metode pembayaran yang tersedia.</p></div>
+        <div class="step"><b>04</b><div>🚀</div><h3>Selesai</h3><p>Pesanan diproses dan kamu menerima hasilnya.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <a class="logo footer-logo" href="#" onclick="showHome(event)"><span>game</span><b>hub</b></a>
+        <p>Tempat top up game dan jasa desain kreatif yang praktis.</p>
+      </div>
+      <div>
+        <h4>Layanan</h4>
+        <a href="#game" onclick="openSection('game')">Top Up Game</a>
+        <a href="#game" onclick="openSection('game')">Skin & Voucher</a>
+        <a href="#desain" onclick="openSection('design')">Jasa Desain</a>
+      </div>
+      <div>
+        <h4>Bantuan</h4>
+        <a href="#cara-order">Cara Order</a>
+        <a href="#" onclick="openLogin()">Login</a>
+        <a href="javascript:void(0)" onclick="alert('Customer Care: WhatsApp 08xx-xxxx-xxxx')">Customer Care</a>
+      </div>
+    </div>
+    <div class="copyright">© 2026 GameHub Design. Semua hak dilindungi.</div>
+  </footer>
+
+  <!-- CART MODAL -->
+  <div class="modal" id="cartModal" onclick="closeModalOutside(event, 'cartModal')">
+    <div class="modal-box">
+      <button class="close" onclick="closeModal('cartModal')">×</button>
+      <h2>Keranjang</h2>
+      <div id="cartItems"></div>
+      <div class="cart-total">
+        <span>Total</span><strong id="cartTotal">Rp0</strong>
+      </div>
+      <button class="primary-btn full" onclick="checkout()">Checkout</button>
+    </div>
+  </div>
+
+  <!-- LOGIN MODAL -->
+  <div class="modal" id="loginModal" onclick="closeModalOutside(event, 'loginModal')">
+    <div class="modal-box small">
+      <button class="close" onclick="closeModal('loginModal')">×</button>
+      <h2>Masuk</h2>
+      <p class="muted">Demo UI — belum terhubung database.</p>
+      <label>Email</label>
+      <input class="form-input" type="email" placeholder="nama@email.com">
+      <label>Password</label>
+      <input class="form-input" type="password" placeholder="••••••••">
+      <button class="primary-btn full" onclick="demoLogin()">Masuk</button>
+    </div>
+  </div>
+
+  <!-- DETAIL MODAL -->
+  <div class="modal" id="detailModal" onclick="closeModalOutside(event, 'detailModal')">
+    <div class="modal-box">
+      <button class="close" onclick="closeModal('detailModal')">×</button>
+      <div id="detailContent"></div>
+    </div>
+  </div>
+
+  <div class="floating-help" onclick="alert('Customer Care\\nWhatsApp: 08xx-xxxx-xxxx\\nJam layanan: 08.00–22.00')">◉</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
